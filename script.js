@@ -29,17 +29,16 @@ fetch('https://api.openweathermap.org/data/2.5/weather?q='+input.value+'&appid=7
   var contValue = data['sys']['country'];
   var descValue = data['weather'][0]['description'];
 
-  main.innerHTML = nameValue;
+  main.innerHTML = nameValue+", "+contValue;
   vis.innerHTML = "Visibility - "+visValue+" m";
   desc.innerHTML = "Description - "+descValue;
-  cont.innerHTML = contValue;
   wind.innerHTML = "Wind Speed - "+parseFloat(windValue*3.6).toFixed(2)+" Km/h";
-  temp.innerHTML = "Temperature - "+tempValue+" K";
+  temp.innerHTML = "Temperature - "+tempValue+" K / "+parseFloat(tempValue-273.15).toFixed(2)+" °C / "+parseFloat(tempValue-459.67).toFixed(2)+" °F";
   humidity.innerHTML = "Humidity - "+humidityValue+" %";
   pressure.innerHTML = "Pressure - "+pressureValue+" hPa";
   clouds.innerHTML = "Clouds - "+cloudsValue+" %";
-  mintemp.innerHTML = "Minimum Temperature - "+mintempValue+" K";
-  maxtemp.innerHTML = "Maximum Temperature - "+maxtempValue+" K";
+  mintemp.innerHTML = "Min. Temperature - "+mintempValue+" K / "+parseFloat(mintempValue-273.15).toFixed(2)+" °C / "+parseFloat(mintempValue-459.67).toFixed(2)+" °F";
+  maxtemp.innerHTML = "Max. Temperature - "+maxtempValue+" K / "+parseFloat(maxtempValue-273.15).toFixed(2)+" °C / "+parseFloat(maxtempValue-459.67).toFixed(2)+" °F";
   input.value ="";
 
 })
